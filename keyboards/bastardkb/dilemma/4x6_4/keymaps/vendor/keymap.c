@@ -17,6 +17,8 @@
  */
 #include QMK_KEYBOARD_H
 
+#include "keymap_norwegian.h"
+
 enum dilemma_keymap_layers {
     LAYER_BASE = 0,
     LAYER_LOWER,
