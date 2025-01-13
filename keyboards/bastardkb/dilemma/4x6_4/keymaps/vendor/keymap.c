@@ -46,6 +46,10 @@ enum dilemma_keymap_layers {
  #    include INTROSPECTION_KEYMAP_C 
  #endif // INTROSPECTION_KEYMAP_C
 
+tap_dance_action_t tap_dance_actions[] = {
+  //  [TD_ES_QUES_ES_IEQUE] = ACTION_TAP_DANCE_DOUBLE(ES_QUES, ES_IQUE),
+};
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
