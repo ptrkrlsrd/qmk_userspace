@@ -41,6 +41,11 @@ enum dilemma_keymap_layers {
 #    define SNIPING KC_NO
 #endif // !POINTING_DEVICE_ENABLE
 
+
+ #ifdef INTROSPECTION_KEYMAP_C 
+ #    include INTROSPECTION_KEYMAP_C 
+ #endif // INTROSPECTION_KEYMAP_C
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
