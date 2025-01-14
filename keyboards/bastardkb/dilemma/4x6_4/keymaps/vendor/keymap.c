@@ -67,6 +67,7 @@ tap_dance_action_t tap_dance_actions[] = {
 
 enum custom_keycodes {
     L_BRACER = SAFE_RANGE,
+    SAVE_MACRO
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -74,6 +75,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case L_BRACER:
         if (record->event.pressed) {
             SEND_STRING("{");
+        } else {
+            // when keycode L_BRACER is released
+        }
+        break;
+    }
+    case SAVE_MACRO:
+        if (record->event.pressed) {
+            SEND_STRING(":w");
         } else {
             // when keycode L_BRACER is released
         }
@@ -116,9 +125,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
         KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, L_BRACER, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, SAVE_MACRO, XXXXXXX, XXXXXXX, L_BRACER, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_LEFT,   KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
+       XXXXXXX, SAVE_MACRO,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_LEFT,   KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
