@@ -86,15 +86,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
+        TD_GRV_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_LBRC,
+        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSLS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LSFT,   HM_A,    HM_S,    HM_D,    HM_F,    HM_G,       HM_H,    HM_J,    HM_K,    HM_L, KC_SCLN, KC_QUOT,
+       KC_LSFT,    KC_A,    HM_S,    HM_D,    HM_F,    HM_G,       HM_H,    HM_J,    HM_K,    HM_L, KC_SCLN, KC_QUOT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       MT(MOD_LCTL,KC_ESC), PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_LALT,
+       KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_LALT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                         KC_NO,  KC_BSPC, MT(MOD_LCTL,KC_SPC), LOWER,      RAISE,   KC_ENT,  KC_MUTE, KC_LGUI
+                         KC_LALT, KC_BSPC,  KC_SPC,   LOWER,      RAISE,  KC_ENT, KC_DEL,  KC_MUTE
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
   ),
 
@@ -102,41 +102,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        S(KC_GRV), S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),    S(KC_6), S(KC_7), S(KC_8), S(KC_9), S(KC_0), S(KC_MINS),
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_TRNS, LSA(KC_8), LSA(KC_9), RALT(KC_8), RALT(KC_9), RALT(KC_RBRC),    KC_NO, KC_COMM, RALT(KC_0), RALT(KC_7), RALT(KC_9), RALT(KC_8),
+       XXXXXXX, NO_LABK, NO_LBRC, NO_RBRC, S(KC_GRV), NO_UNDS,    KC_NO,   KC_P7,   KC_P8,   KC_P9, KC_LBRC, KC_COMM,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_TRNS, KC_LGUI, KC_LALT, KC_NUBS, KC_NUBS, S(KC_DOT),    KC_PEQL, KC_PMNS, KC_COMM, KC_NO, KC_NO, KC_NO,
+       XXXXXXX, XXXXXXX, XXXXXXX, NO_RCBR, KC_LSFT, NO_MINS,    KC_P4,   KC_P5,   KC_P6, KC_COMM, KC_PMNS, KC_PEQL,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_TRNS, KC_NUBS, S(KC_NUBS), RALT(KC_NO), RALT(KC_NO), KC_NO,    KC_PDOT, KC_PSLS, KC_NO, KC_NO, KC_NO, KC_NO,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_NO,    KC_P7,   KC_P8,   KC_P9,   KC_P3, KC_PSLS, KC_PDOT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                         KC_NO, KC_NO, KC_NO, KC_TRNS,    KC_TRNS, KC_TRNS, KC_NO, KC_NO
+                         KC_NO, KC_NO, KC_NO, _______,    KC_TRNS, KC_NO, KC_NO, KC_NO
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
   ),
 
   [LAYER_RAISE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
+        KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_NO, KC_NO, L_BRACER, L_BRACER, KC_NO, KC_NO,    KC_NO, KC_NUHS, S(KC_9), S(KC_8), RALT(KC_0), RALT(KC_7),
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, L_BRACER, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_NO, L_BRACER, L_BRACER, KC_NO, KC_NO, KC_NO,    KC_NO, S(KC_NUHS), KC_RGHT, KC_UP, KC_DOWN, KC_LEFT,
+       XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_LEFT,   KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_NO, KC_NUBS, S(KC_NUBS), KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, S(KC_9), S(KC_8),
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                         KC_NO, KC_TRNS, KC_TRNS, KC_NO,    KC_NO, KC_NO, KC_NO, KC_TRNS
+                         XXXXXXX, _______, _______, XXXXXXX,    _______, XXXXXXX, XXXXXXX, XXXXXXX
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
   ),
 
   [LAYER_POINTER] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RESET,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_NO, KC_NO, KC_NO, KC_NO, CUSTOM(0), CUSTOM(2),    KC_NO, KC_NO, KC_NO, KC_NO, CUSTOM(0), CUSTOM(2),
+       XXXXXXX, SNIPING, XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_NO, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, KC_NO,    KC_NO, KC_RGUI, KC_RALT, KC_RCTL, KC_RSFT, KC_NO,
+       XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,    XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_NO, KC_TRNS, CUSTOM(6), CUSTOM(4), QK_CLEAR_EEPROM, KC_NO,    KC_NO, KC_TRNS, CUSTOM(6), CUSTOM(4), QK_CLEAR_EEPROM, RESET,
+       XXXXXXX, _______, DRGSCRL, SNIPING, EE_CLR,  QK_BOOT,    QK_BOOT, EE_CLR,  SNIPING, DRGSCRL, _______, XXXXXXX,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                         KC_NO, KC_MS_BTN2, KC_MS_BTN1, KC_MS_BTN3,    KC_NO, KC_MS_BTN2, KC_MS_BTN1, KC_NO
+                         XXXXXXX, KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN3, KC_BTN1, KC_BTN2, XXXXXXX
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
   ),
 };
