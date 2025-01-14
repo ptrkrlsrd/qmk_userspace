@@ -65,6 +65,23 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_GRV_ESC] = ACTION_TAP_DANCE_DOUBLE(S(KC_GRV), KC_ESC),
 };
 
+enum custom_keycodes {
+    L_BRACER = SAFE_RANGE,
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case L_BRACER:
+        if (record->event.pressed) {
+            SEND_STRING("{");
+        } else {
+            // when keycode L_BRACER is released
+        }
+        break;
+    }
+    return true;
+};
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
@@ -99,9 +116,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
        KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_NO, KC_NO, MACRO(0), MACRO(2), KC_NO, KC_NO,    KC_NO, KC_NUHS, S(KC_9), S(KC_8), RALT(KC_0), RALT(KC_7),
+       KC_NO, KC_NO, L_BRACER, L_BRACER, KC_NO, KC_NO,    KC_NO, KC_NUHS, S(KC_9), S(KC_8), RALT(KC_0), RALT(KC_7),
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_NO, MACRO(0), MACRO(0), KC_NO, KC_NO, KC_NO,    KC_NO, S(KC_NUHS), KC_RGHT, KC_UP, KC_DOWN, KC_LEFT,
+       KC_NO, L_BRACER, L_BRACER, KC_NO, KC_NO, KC_NO,    KC_NO, S(KC_NUHS), KC_RGHT, KC_UP, KC_DOWN, KC_LEFT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_NO, KC_NUBS, S(KC_NUBS), KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, S(KC_9), S(KC_8),
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
