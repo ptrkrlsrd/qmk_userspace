@@ -79,7 +79,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode L_BRACER is released
         }
         break;
-    }
     case SAVE_MACRO:
         if (record->event.pressed) {
             SEND_STRING(":w");
