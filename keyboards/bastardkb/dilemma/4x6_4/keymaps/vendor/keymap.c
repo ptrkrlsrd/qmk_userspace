@@ -34,6 +34,18 @@ enum dilemma_keymap_layers {
 #define PT_Z LT(LAYER_POINTER, KC_Z)
 #define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
 
+// Home row mods
+#define HM_A    KC_A
+#define HM_S    MT(MOD_LALT, KC_S)
+#define HM_D    MT(MOD_LSFT, KC_D)
+#define HM_F    MT(MOD_LCTL, KC_F)
+#define HM_G    MT(MOD_LGUI, KC_G)
+
+#define HM_H    MT(MOD_LALT, KC_H)
+#define HM_J    MT(MOD_LSFT, KC_J)
+#define HM_K    MT(MOD_LCTL, KC_K)
+#define HM_L    MT(MOD_LGUI, KC_L)
+
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
 #    define DPI_MOD KC_NO
@@ -57,22 +69,21 @@ tap_dance_action_t tap_dance_actions[] = {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_MINS,  KC_0,    KC_9,    KC_8,    KC_7,    KC_6,
+       KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_LBRC,  KC_P,    KC_O,    KC_I,    KC_U,    KC_Y,
+       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_LBRC,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LSFT,   KC_A,    MT(MOD_LALT,KC_S), MT(MOD_LSFT,KC_D), MT(MOD_LCTL,KC_F), MT(MOD_LGUI,KC_G),    
-                                                                   KC_QUOT,  KC_SCLN, MT(MOD_LGUI,KC_L), MT(MOD_LCTL,KC_K), MT(MOD_LSFT,KC_J), MT(MOD_LALT,KC_H),
+       KC_LSFT,   HM_A,    HM_S,    HM_D,    HM_F,    HM_G,       HM_H,    HM_J,    HM_K,    HM_L, KC_SCLN, KC_QUOT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       MT(MOD_LCTL,KC_ESC), PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_LALT,  PT_SLSH, KC_DOT,  KC_COMM, KC_M,    KC_N,
+       MT(MOD_LCTL,KC_ESC), PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_LALT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                         KC_NO,  KC_BSPC, MT(MOD_LCTL,KC_SPC), LOWER,      MO(2),   KC_ENT,  KC_MUTE, KC_LGUI
+                         KC_NO,  KC_BSPC, MT(MOD_LCTL,KC_SPC), LOWER,      RAISE,   KC_ENT,  KC_MUTE, KC_LGUI
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
   ),
 
   [LAYER_LOWER] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       S(KC_GRV), S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),    S(KC_MINS), S(KC_0), S(KC_9), S(KC_8), S(KC_7), S(KC_6),
+       S(KC_GRV), S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),    S(KC_6), S(KC_7), S(KC_8), S(KC_9), S(KC_0), S(KC_MINS),
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_TRNS, LSA(KC_8), LSA(KC_9), RALT(KC_8), RALT(KC_9), RALT(KC_RBRC),    KC_NO, KC_COMM, RALT(KC_0), RALT(KC_7), RALT(KC_9), RALT(KC_8),
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
@@ -86,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_RAISE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F11,   KC_F10,  KC_F9,   KC_F8,   KC_F7,   KC_F6,
+       KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_NO, KC_NO, MACRO(0), MACRO(2), KC_NO, KC_NO,    KC_NO, KC_NUHS, S(KC_9), S(KC_8), RALT(KC_0), RALT(KC_7),
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
@@ -100,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_POINTER] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,    RESET, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, RESET,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_NO, KC_NO, KC_NO, KC_NO, CUSTOM(0), CUSTOM(2),    KC_NO, KC_NO, KC_NO, KC_NO, CUSTOM(0), CUSTOM(2),
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
