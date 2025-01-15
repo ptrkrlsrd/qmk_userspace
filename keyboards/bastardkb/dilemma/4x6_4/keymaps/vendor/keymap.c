@@ -56,8 +56,9 @@ enum dilemma_keymap_layers {
 #ifdef INTROSPECTION_KEYMAP_C
 #    include INTROSPECTION_KEYMAP_C
 #endif // INTROSPECTION_KEYMAP_C
-//
-// typedef struct {
+
+
+typedef struct {
     uint16_t tap;
     uint16_t hold;
     uint16_t held;
