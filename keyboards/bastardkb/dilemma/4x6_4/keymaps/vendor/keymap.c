@@ -99,10 +99,13 @@ void tap_dance_tap_hold_reset(tap_dance_state_t *state, void *user_data) {
 
 enum {
     TD_GRV_ESC,
-    CT_CLN
+    TD_Q_TAB,
+    CT_CLN,
+    CT_DOT
 };
 
 tap_dance_action_t tap_dance_actions[] = {
+    [TD_Q_TAB] = ACTION_TAP_DANCE_DOUBLE(KC_Q, KC_TAB),
     [TD_GRV_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_ESC),
     [CT_CLN] = ACTION_TAP_DANCE_TAP_HOLD(KC_COMM, S(KC_COMM)),
     [CT_DOT] = ACTION_TAP_DANCE_TAP_HOLD(KC_DOT, S(KC_DOT)),
@@ -131,6 +134,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode L_BRACER is released
         }
         break;
+    case TD(CT_DOT):
     case TD(CT_CLN):  // list all tap dance keycodes with tap-hold configurations
         action = &tap_dance_actions[QK_TAP_DANCE_GET_INDEX(keycode)];
         if (!record->event.pressed && action->state.count && !action->state.finished) {
@@ -147,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
          TD(TD_GRV_ESC),    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSLS,
+        KC_TAB,    TD(TD_Q_TAB),    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSLS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LSFT,    KC_A,    HM_S,    HM_D,    HM_F,    HM_G,       HM_H,    HM_J,    HM_K,    HM_L, KC_SCLN, KC_QUOT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
