@@ -100,12 +100,14 @@ void tap_dance_tap_hold_reset(tap_dance_state_t *state, void *user_data) {
 enum {
     TD_GRV_ESC,
     TD_Q_TAB,
+    TD_1_SHFT,
     CT_CLN,
     CT_DOT
 };
 
 tap_dance_action_t tap_dance_actions[] = {
     [TD_Q_TAB] = ACTION_TAP_DANCE_DOUBLE(KC_Q, KC_TAB),
+    [TD_1_SHFT] = ACTION_TAP_DANCE_DOUBLE(KC_1, S(KC_1)),
     [TD_GRV_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_ESC),
     [CT_CLN] = ACTION_TAP_DANCE_TAP_HOLD(KC_COMM, S(KC_COMM)),
     [CT_DOT] = ACTION_TAP_DANCE_TAP_HOLD(KC_DOT, S(KC_DOT)),
@@ -149,7 +151,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
-         TD(TD_GRV_ESC),    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
+         TD(TD_GRV_ESC),    TD(TD_1_SHFT),    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
         KC_TAB,    TD(TD_Q_TAB),    KC_W,    KC_E,    KC_R,    KC_T,       KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSLS,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
