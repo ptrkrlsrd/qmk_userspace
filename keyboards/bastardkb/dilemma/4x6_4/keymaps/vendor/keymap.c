@@ -97,6 +97,7 @@ void tap_dance_tap_hold_reset(tap_dance_state_t *state, void *user_data) {
 
 enum {
     TD_GRV_ESC,
+    CT_CLN
 };
 
 tap_dance_action_t tap_dance_actions[] = {
