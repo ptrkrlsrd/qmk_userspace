@@ -101,8 +101,8 @@ enum {
 };
 
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_GRV_ESC] = ACTION_TAP_DANCE_DOUBLE(S(KC_GRV), KC_ESC),
-    [CT_CLN] = ACTION_TAP_DANCE_TAP_HOLD(KC_COLN, KC_SCLN),
+    [TD_GRV_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_ESC),
+    [CT_CLN] = ACTION_TAP_DANCE_TAP_HOLD(KC_COMM, KC_SCLN),
 };
 
 enum custom_keycodes {
@@ -111,6 +111,8 @@ enum custom_keycodes {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    tap_dance_action_t *action;
+
     switch (keycode) {
     case L_BRACER:
         if (record->event.pressed) {
@@ -126,6 +128,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode L_BRACER is released
         }
         break;
+    case TD(CT_CLN):  // list all tap dance keycodes with tap-hold configurations
+        action = &tap_dance_actions[QK_TAP_DANCE_GET_INDEX(keycode)];
+        if (!record->event.pressed && action->state.count && !action->state.finished) {
+            tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
+            tap_code16(tap_hold->tap);
+        }
     }
     return true;
 };
@@ -140,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LSFT,    KC_A,    HM_S,    HM_D,    HM_F,    HM_G,       HM_H,    HM_J,    HM_K,    HM_L, KC_SCLN, KC_QUOT,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, KC_COMM,  KC_DOT, PT_SLSH, KC_LALT,
+       KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, TD(CT_CLN),  KC_DOT, PT_SLSH, KC_LALT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
                          KC_LALT, KC_BSPC,  KC_SPC,   LOWER,      RAISE,  KC_ENT, KC_DEL,  KC_MUTE
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
