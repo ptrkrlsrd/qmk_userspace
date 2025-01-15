@@ -26,6 +26,9 @@ enum dilemma_keymap_layers {
     LAYER_POINTER,
 };
 
+#define TAPPING_TERM 175
+#define TAPPING_TERM_PER_KEY
+
 // Automatically enable sniping-mode on the pointer layer.
 // #define DILEMMA_AUTO_SNIPING_ON_LAYER LAYER_POINTER
 
