@@ -53,9 +53,46 @@ enum dilemma_keymap_layers {
 #    define SNIPING KC_NO
 #endif // !POINTING_DEVICE_ENABLE
 
-#ifdef INTROSPECTION_KEYMAP_C 
-#    include INTROSPECTION_KEYMAP_C 
+#ifdef INTROSPECTION_KEYMAP_C
+#    include INTROSPECTION_KEYMAP_C
 #endif // INTROSPECTION_KEYMAP_C
+//
+// typedef struct {
+    uint16_t tap;
+    uint16_t hold;
+    uint16_t held;
+} tap_dance_tap_hold_t;
+
+
+void tap_dance_tap_hold_finished(tap_dance_state_t *state, void *user_data) {
+    tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)user_data;
+
+    if (state->pressed) {
+        if (state->count == 1
+#ifndef PERMISSIVE_HOLD
+            && !state->interrupted
+#endif
+        ) {
+            register_code16(tap_hold->hold);
+            tap_hold->held = tap_hold->hold;
+        } else {
+            register_code16(tap_hold->tap);
+            tap_hold->held = tap_hold->tap;
+        }
+    }
+}
+
+void tap_dance_tap_hold_reset(tap_dance_state_t *state, void *user_data) {
+    tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)user_data;
+
+    if (tap_hold->held) {
+        unregister_code16(tap_hold->held);
+        tap_hold->held = 0;
+    }
+}
+
+#define ACTION_TAP_DANCE_TAP_HOLD(tap, hold) \
+    { .fn = {NULL, tap_dance_tap_hold_finished, tap_dance_tap_hold_reset}, .user_data = (void *)&((tap_dance_tap_hold_t){tap, hold, 0}), }
 
 enum {
     TD_GRV_ESC,
@@ -63,6 +100,7 @@ enum {
 
 tap_dance_action_t tap_dance_actions[] = {
     [TD_GRV_ESC] = ACTION_TAP_DANCE_DOUBLE(S(KC_GRV), KC_ESC),
+    [CT_CLN] = ACTION_TAP_DANCE_TAP_HOLD(KC_COLN, KC_SCLN),
 };
 
 enum custom_keycodes {
@@ -71,10 +109,12 @@ enum custom_keycodes {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    tap_dance_action_t *action;
+
     switch (keycode) {
     case L_BRACER:
         if (record->event.pressed) {
-            SEND_STRING("{ ");
+            SEND_STRING("{");
         } else {
             // when keycode L_BRACER is released
         }
