@@ -102,8 +102,8 @@ void tap_dance_tap_hold_reset(tap_dance_state_t *state, void *user_data) {
 
 enum {
     TD_Q_TAB,
-    TD_W_SAVE,
     TD_1_SHFT,
+    TD_W_SAVE,
     TD_GRV_ESC,
     CT_CLN,
     CT_DOT
