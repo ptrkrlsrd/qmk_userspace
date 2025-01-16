@@ -109,6 +109,12 @@ enum {
     CT_DOT
 };
 
+enum custom_keycodes {
+    L_BRACER = SAFE_RANGE,
+    R_BRACER,
+    SAVE_MACRO
+};
+
 tap_dance_action_t tap_dance_actions[] = {
     [TD_Q_TAB] = ACTION_TAP_DANCE_DOUBLE(KC_Q, KC_TAB),
     [TD_W_SAVE] = ACTION_TAP_DANCE_TAP_HOLD(KC_W, SAVE_MACRO),
@@ -116,12 +122,6 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_GRV_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_ESC),
     [CT_CLN] = ACTION_TAP_DANCE_TAP_HOLD(KC_COMM, S(KC_COMM)),
     [CT_DOT] = ACTION_TAP_DANCE_TAP_HOLD(KC_DOT, S(KC_DOT)),
-};
-
-enum custom_keycodes {
-    L_BRACER = SAFE_RANGE,
-    R_BRACER,
-    SAVE_MACRO
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
