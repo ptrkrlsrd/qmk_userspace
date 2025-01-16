@@ -123,19 +123,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     tap_dance_action_t *action;
 
     switch (keycode) {
-    case L_BRACER:
-        if (record->event.pressed) {
-            SEND_STRING("{");
-        } else {
-            // when keycode L_BRACER is released
-        }
-        break;
-    case SAVE_MACRO:
-        if (record->event.pressed) {
-            SEND_STRING(":w");
-        } else {
-            // when keycode L_BRACER is released
-        }
+        case L_BRACER:
+            if (record->event.pressed) {
+                SEND_STRING("L_BRACER");
+            }
+            return false;
+        case SAVE_MACRO:
+            if (record->event.pressed) {
+                SEND_STRING("SAVE_MACRO");
+            }
+            return false;
         break;
 
     case TD(CT_DOT):
