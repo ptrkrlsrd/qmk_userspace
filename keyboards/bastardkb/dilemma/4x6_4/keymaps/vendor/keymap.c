@@ -127,12 +127,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 SEND_STRING("L_BRACER");
             }
-            return false;
+            return true;
         case SAVE_MACRO:
             if (record->event.pressed) {
                 SEND_STRING("SAVE_MACRO");
             }
-            return false;
+            return true;
         break;
 
     case TD(CT_DOT):
