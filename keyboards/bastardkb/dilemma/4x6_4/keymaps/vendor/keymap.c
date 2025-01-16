@@ -118,6 +118,7 @@ tap_dance_action_t tap_dance_actions[] = {
 
 enum custom_keycodes {
     L_BRACER = SAFE_RANGE,
+    R_BRACER,
     SAVE_MACRO
 };
 
@@ -127,12 +128,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case L_BRACER:
             if (record->event.pressed) {
-                SEND_STRING("L_BRACER");
+                SEND_STRING("{");
+            }
+            return true;
+        case R_BRACER:
+            if (record->event.pressed) {
+                SEND_STRING("}");
             }
             return true;
         case SAVE_MACRO:
             if (record->event.pressed) {
-                SEND_STRING("SAVE_MACRO");
+                SEND_STRING(":w");
             }
             return true;
         break;
@@ -183,7 +189,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
         KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, SAVE_MACRO, XXXXXXX, XXXXXXX, L_BRACER, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, SAVE_MACRO, XXXXXXX, XXXXXXX, L_BRACER, R_BRACER,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, SAVE_MACRO,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_LEFT,   KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
