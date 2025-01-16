@@ -27,6 +27,7 @@ enum dilemma_keymap_layers {
 };
 
 #define TAPPING_TERM_PER_KEY
+#define PERMISSIVE_HOLD
 
 // Automatically enable sniping-mode on the pointer layer.
 // #define DILEMMA_AUTO_SNIPING_ON_LAYER LAYER_POINTER
@@ -136,6 +137,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             // when keycode L_BRACER is released
         }
         break;
+
     case TD(CT_DOT):
     case TD(CT_CLN):  // list all tap dance keycodes with tap-hold configurations
         action = &tap_dance_actions[QK_TAP_DANCE_GET_INDEX(keycode)];
@@ -160,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,       KC_N,    KC_M, TD(CT_CLN),  TD(CT_DOT), PT_SLSH, KC_LALT,
   // ╰──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────╯
-                         KC_LALT, KC_BSPC,  KC_SPC,   LOWER,      RAISE,  KC_ENT, KC_DEL,  KC_MUTE
+                         KC_LALT, KC_BSPC,  KC_SPC,   LOWER,      RAISE,  KC_ENT, KC_LGUI,  KC_MUTE
   //                    ╰───────────────────────────────────╯ ╰───────────────────────────────────╯
   ),
 
