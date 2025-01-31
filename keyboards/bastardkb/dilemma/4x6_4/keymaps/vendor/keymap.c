@@ -46,7 +46,7 @@ enum dilemma_keymap_layers {
 #define HM_F    MT(MOD_LCTL, KC_F)
 #define HM_G    MT(MOD_LGUI, KC_G)
 
-#define HM_H    MT(MOD_LALT, KC_H)
+#define HM_H    MT(MOD_RALT, KC_H)
 #define HM_J    MT(MOD_LSFT, KC_J)
 #define HM_K    MT(MOD_LCTL, KC_K)
 #define HM_L    MT(MOD_LGUI, KC_L)
@@ -233,7 +233,7 @@ void rgb_matrix_update_pwm_buffers(void);
 #ifdef ENCODER_MAP_ENABLE
 // clang-format off
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [LAYER_BASE]       = {ENCODER_CCW_CW(KC_PGUP, KC_PGDN), ENCODER_CCW_CW(KC_VOLU, KC_VOLD)},
+    [LAYER_BASE]       = {ENCODER_CCW_CW(KC_PGUP, KC_PGDN), ENCODER_CCW_CW(KC_VOLD, KC_VOLU)},
     [LAYER_LOWER]      = {ENCODER_CCW_CW(KC_UP, KC_DOWN), ENCODER_CCW_CW(KC_LEFT, KC_RGHT)},
     [LAYER_RAISE]      = {ENCODER_CCW_CW(KC_PGUP, KC_PGDN), ENCODER_CCW_CW(KC_VOLU, KC_VOLD)},
     [LAYER_POINTER]    = {ENCODER_CCW_CW(RGB_HUD, RGB_HUI), ENCODER_CCW_CW(RGB_SAD, RGB_SAI)},
