@@ -143,7 +143,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(":w");
             }
             return true;
-        break;
+        break
+    case TD(TD_W_SAVE):
     case TD(CT_DOT):
     case TD(CT_CLN):  // list all tap dance keycodes with tap-hold configurations
         action = &tap_dance_actions[QK_TAP_DANCE_GET_INDEX(keycode)];
