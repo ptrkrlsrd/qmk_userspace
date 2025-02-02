@@ -29,6 +29,34 @@ enum dilemma_keymap_layers {
     LAYER_POINTER,
 };
 
+enum {
+    TD_Q_TAB,
+    TD_1_SHFT,
+    TD_W_SAVE,
+    TD_GRV_ESC,
+    CT_CLN,
+    CT_DOT,
+    CT_DASH,
+    CT_MINS,
+    CT_GRV_ESC,
+    CT_SHFT_1,
+    CT_SHFT_2,
+    CT_SHFT_3,
+    CT_SHFT_4,
+    CT_SHFT_5,
+    CT_SHFT_6,
+    CT_SHFT_7,
+    CT_SHFT_8,
+    CT_SHFT_9,
+    CT_SHFT_0
+};
+
+enum custom_keycodes {
+    L_BRACER = SAFE_RANGE,
+    R_BRACER,
+    SAVE_MACRO
+};
+
 #define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
 
@@ -39,11 +67,6 @@ enum dilemma_keymap_layers {
 #define RAISE MO(LAYER_RAISE)
 #define PT_Z LT(LAYER_POINTER, KC_Z)
 #define PT_SLSH LT(LAYER_POINTER, KC_SLSH)
-
-#define U_LBRC RALT(KC_7)
-#define U_RBRC RALT(KC_0)
-#define U_LBRK RALT(KC_8)
-#define U_RBRK RALT(KC_9)
 
 // Home row mods
 #define HM_A    KC_A
@@ -56,6 +79,38 @@ enum dilemma_keymap_layers {
 #define HM_J    MT(MOD_LSFT, KC_J)
 #define HM_K    MT(MOD_LCTL, KC_K)
 #define HM_L    MT(MOD_LGUI, KC_L)
+
+/* Norwegian Special Characters */
+#define U_LBRC RALT(KC_7)    // {
+#define U_RBRC RALT(KC_0)    // }
+#define U_LBRK RALT(KC_8)    // [
+#define U_RBRK RALT(KC_9)    // ]
+
+/* Tap Dance Shortcuts */
+// Basic tap-dance
+#define TD_QTAB TD(TD_Q_TAB)     // Tap: Q, Double-tap: Tab
+#define TD_WSAVE TD(TD_W_SAVE)    // Tap: W, Hold: :W
+#define TD_1SHFT TD(TD_1_SHFT)    // Tap: 1, Double-tap: !
+#define TD_GESC TD(TD_GRV_ESC)    // Tap: Grave, Double-tap: Esc
+
+// Number row tap-holds
+#define TD_1 TD(CT_SHFT_1)
+#define TD_2 TD(CT_SHFT_2)
+#define TD_3 TD(CT_SHFT_3)
+#define TD_4 TD(CT_SHFT_4)
+#define TD_5 TD(CT_SHFT_5)
+#define TD_6 TD(CT_SHFT_6)
+#define TD_7 TD(CT_SHFT_7)
+#define TD_8 TD(CT_SHFT_8)
+#define TD_9 TD(CT_SHFT_9)
+#define TD_0 TD(CT_SHFT_0)
+
+// Special character tap-holds
+#define TD_GRV TD(CT_GRV_ESC) 
+#define TD_MIN TD(CT_MINS)
+#define TD_COMM TD(CT_CLN)
+#define TD_DOT TD(CT_DOT)
+#define TD_SLSH TD(CT_DASH)
 
 #ifndef POINTING_DEVICE_ENABLE
 #    define DRGSCRL KC_NO
@@ -105,34 +160,6 @@ void tap_dance_tap_hold_reset(tap_dance_state_t *state, void *user_data) {
 
 #define ACTION_TAP_DANCE_TAP_HOLD(tap, hold) \
     { .fn = {NULL, tap_dance_tap_hold_finished, tap_dance_tap_hold_reset}, .user_data = (void *)&((tap_dance_tap_hold_t){tap, hold, 0}), }
-
-enum {
-    TD_Q_TAB,
-    TD_1_SHFT,
-    TD_W_SAVE,
-    TD_GRV_ESC,
-    CT_CLN,
-    CT_DOT,
-    CT_DASH,
-    CT_MINS,
-    CT_GRV_ESC,
-    CT_SHFT_1,
-    CT_SHFT_2,
-    CT_SHFT_3,
-    CT_SHFT_4,
-    CT_SHFT_5,
-    CT_SHFT_6,
-    CT_SHFT_7,
-    CT_SHFT_8,
-    CT_SHFT_9,
-    CT_SHFT_0
-};
-
-enum custom_keycodes {
-    L_BRACER = SAFE_RANGE,
-    R_BRACER,
-    SAVE_MACRO
-};
 
 tap_dance_action_t tap_dance_actions[] = {
     [TD_Q_TAB] = ACTION_TAP_DANCE_DOUBLE(KC_Q, KC_TAB),
@@ -212,7 +239,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├─────────────────────────────┤ ├────────────────────────────────┤
        KC_LSFT,    KC_A,    HM_S,    HM_D,    HM_F,    HM_G,                           HM_H,    HM_J,    HM_K,    HM_L, KC_SCLN, KC_QUOT,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
-       KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                KC_N,    KC_M, TD(CT_CLN),  TD(CT_DOT), PT_SLSH, KC_LALT,
+       KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                KC_N,    KC_M, TD(CT_CLN),  TD(CT_DOT), TD(CT_DASH), KC_LALT,
   // ╰─────────────────────────────┤ ├────────────────────────────────╯
                          KC_LALT, KC_BSPC,  KC_SPC,   LOWER,                                RAISE,  KC_ENT, KC_LGUI,  KC_MUTE
   //                    ╰────────────────────────╯ ╰────────────────────╯
