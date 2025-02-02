@@ -114,7 +114,8 @@ enum {
     CT_CLN,
     CT_DOT,
     CT_DASH,
-    CT_MINS
+    CT_MINS,
+    CT_GRV_ESC
 };
 
 enum custom_keycodes {
@@ -128,6 +129,7 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_W_SAVE] = ACTION_TAP_DANCE_TAP_HOLD(KC_W, SAVE_MACRO),
     [TD_1_SHFT] = ACTION_TAP_DANCE_DOUBLE(KC_1, S(KC_1)),
     [TD_GRV_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_ESC),
+    [CT_GRV_ESC] = ACTION_TAP_DANCE_TAP_HOLD(KC_GRV, KC_ESC),
     [CT_MINS] = ACTION_TAP_DANCE_TAP_HOLD(KC_MINS, S(KC_MINS)),
     [CT_CLN] = ACTION_TAP_DANCE_TAP_HOLD(KC_COMM, S(KC_COMM)),
     [CT_DOT] = ACTION_TAP_DANCE_TAP_HOLD(KC_DOT, S(KC_DOT)),
@@ -154,6 +156,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return true;
         break;
+    case TD(CT_GRV_ESC):
     case TD(TD_W_SAVE):
     case TD(CT_DOT):
     case TD(CT_DASH):
@@ -173,7 +176,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
   // ╭─────────────────────────────╮ ╭────────────────────────────────╮
-         TD(TD_GRV_ESC), S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),           S(KC_6), S(KC_7), S(KC_8), S(KC_9), S(KC_0), TD(CT_MINS),
+         TD(CT_GRV_ESC), S(KC_1), S(KC_2), S(KC_3), S(KC_4), S(KC_5),           S(KC_6), S(KC_7), S(KC_8), S(KC_9), S(KC_0), TD(CT_MINS),
   // ├─────────────────────────────┤ ├────────────────────────────────┤
         KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                              KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSLS,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
