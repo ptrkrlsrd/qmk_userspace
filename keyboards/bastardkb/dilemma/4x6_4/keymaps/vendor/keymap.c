@@ -127,6 +127,7 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_GRV_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_ESC),
     [CT_CLN] = ACTION_TAP_DANCE_TAP_HOLD(KC_COMM, S(KC_COMM)),
     [CT_DOT] = ACTION_TAP_DANCE_TAP_HOLD(KC_DOT, S(KC_DOT)),
+    [CT_DASH] = ACTION_TAP_DANCE_TAP_HOLD(KC_PSLS, S(KC_PSLS)), // Check this on windows
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -151,6 +152,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
     case TD(TD_W_SAVE):
     case TD(CT_DOT):
+    case TD(CT_DASH):
     case TD(CT_CLN):  // list all tap dance keycodes with tap-hold configurations
         action = &tap_dance_actions[QK_TAP_DANCE_GET_INDEX(keycode)];
         if (!record->event.pressed && action->state.count && !action->state.finished) {
