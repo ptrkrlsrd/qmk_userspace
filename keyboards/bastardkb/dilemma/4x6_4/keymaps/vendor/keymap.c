@@ -115,7 +115,16 @@ enum {
     CT_DOT,
     CT_DASH,
     CT_MINS,
-    CT_GRV_ESC
+    CT_GRV_ESC,
+    CT_SHFT_1,
+    CT_SHFT_2,
+    CT_SHFT_3,
+    CT_SHFT_4,
+    CT_SHFT_5,
+    CT_SHFT_6,
+    CT_SHFT_7,
+    CT_SHFT_8,
+    CT_SHFT_9
 };
 
 enum custom_keycodes {
