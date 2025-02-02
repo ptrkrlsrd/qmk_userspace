@@ -196,7 +196,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭──────────────────────────────────────────────────────╮ ╭──────────────────────────────────────────────────────╮
         KC_F12,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_F11,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
-       XXXXXXX, XXXXXXX, SAVE_MACRO, XXXXXXX, L_BRACER, R_BRACER,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       KC_NUBS, S(KC_NUBS), U_LBRK, U_RBRK, U_LBRC, U_RBRC,    U_LBRC, U_RBRC, U_LBRK, U_RBRK, KC_NUBS, S(KC_NUBS),
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
        XXXXXXX, XXXXXXX,   SAVE_MACRO, XXXXXXX, XXXXXXX, XXXXXXX,    KC_LEFT,   KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
   // ├──────────────────────────────────────────────────────┤ ├──────────────────────────────────────────────────────┤
