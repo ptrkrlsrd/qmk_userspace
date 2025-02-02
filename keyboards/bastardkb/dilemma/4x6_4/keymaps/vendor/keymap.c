@@ -113,7 +113,7 @@ enum {
     TD_GRV_ESC,
     CT_CLN,
     CT_DOT,
-    CT_DASH.
+    CT_DASH,
     CT_MINS
 };
 
