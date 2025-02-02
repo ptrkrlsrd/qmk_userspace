@@ -111,7 +111,8 @@ enum {
     TD_W_SAVE,
     TD_GRV_ESC,
     CT_CLN,
-    CT_DOT
+    CT_DOT,
+    CT_DASH
 };
 
 enum custom_keycodes {
