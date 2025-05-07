@@ -239,7 +239,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├─────────────────────────────┤ ├────────────────────────────────┤
        KC_LSFT,    KC_A,    HM_S,    HM_D,    HM_F,    HM_G,                           HM_H,    HM_J,    HM_K,    HM_L, KC_SCLN, KC_QUOT,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
-       KC_LCTL,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                KC_N,    KC_M, TD(CT_CLN),  TD(CT_DOT), TD(CT_DASH), KC_LALT,
+       KC_LGUI,    PT_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                KC_N,    KC_M, TD(CT_CLN),  TD(CT_DOT), TD(CT_DASH), KC_LALT,
   // ╰─────────────────────────────┤ ├────────────────────────────────╯
                          KC_LALT, KC_BSPC,  KC_SPC,   LOWER,                                RAISE,  KC_ENT, KC_LGUI,  KC_MUTE
   //                    ╰────────────────────────╯ ╰────────────────────╯
