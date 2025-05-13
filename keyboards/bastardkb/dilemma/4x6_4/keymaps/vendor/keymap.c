@@ -234,7 +234,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
   // ╭─────────────────────────────╮ ╭────────────────────────────────╮
-         TD(CT_GRV_ESC), TD(CT_SHFT_1), KC_2, TD(CT_SHFT_3), TD(CT_SHFT_4), TD(CT_SHFT_5),           TD(CT_SHFT_6), TD(CT_SHFT_7), TD(CT_SHFT_8), TD(CT_SHFT_9), TD(CT_SHFT_0), TD(CT_MINS),
+         TD(CT_GRV_ESC), TD(CT_SHFT_1), TD(CT_SHFT_2), TD(CT_SHFT_3), TD(CT_SHFT_4), TD(CT_SHFT_5),           TD(CT_SHFT_6), TD(CT_SHFT_7), TD(CT_SHFT_8), TD(CT_SHFT_9), TD(CT_SHFT_0), TD(CT_MINS),
   // ├─────────────────────────────┤ ├────────────────────────────────┤
         KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                              HM_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSLS,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
@@ -276,13 +276,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_POINTER] = LAYOUT(
   // ╭─────────────────────────────╮ ╭────────────────────────────────╮
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       QK_BOOT, EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, EE_CLR, QK_BOOT,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
        XXXXXXX, SNIPING, XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD,    S_D_MOD, DPI_MOD, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
        XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,    XXXXXXX, KC_RSFT, KC_RCTL, KC_RALT, KC_RGUI, XXXXXXX,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
-       XXXXXXX, _______, DRGSCRL, SNIPING, EE_CLR,  QK_BOOT,    QK_BOOT, EE_CLR,  SNIPING, DRGSCRL, _______, XXXXXXX,
+       XXXXXXX, _______, DRGSCRL, SNIPING, XXXXXXX,  XXXXXXX,    XXXXXXX, XXXXXXX,  SNIPING, DRGSCRL, _______, XXXXXXX,
   // ╰─────────────────────────────┤ ├────────────────────────────────╯
                          XXXXXXX, KC_BTN2, KC_BTN1, KC_BTN3,    KC_BTN3, KC_BTN1, KC_BTN2, XXXXXXX
   //                    ╰────────────────────────╯ ╰────────────────────╯
