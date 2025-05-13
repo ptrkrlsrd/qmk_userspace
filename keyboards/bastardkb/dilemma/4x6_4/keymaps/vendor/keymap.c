@@ -74,6 +74,7 @@ enum custom_keycodes {
 #define HM_D    MT(MOD_LSFT, KC_D)
 #define HM_F    MT(MOD_LCTL, KC_F)
 #define HM_G    MT(MOD_LGUI, KC_G)
+#define HM_Y    MT(MOD_HYPR, KC_Y)
 
 #define HM_H    MT(MOD_RALT, KC_H)
 #define HM_J    MT(MOD_LSFT, KC_J)
@@ -235,7 +236,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ╭─────────────────────────────╮ ╭────────────────────────────────╮
          TD(CT_GRV_ESC), TD(CT_SHFT_1), KC_2, TD(CT_SHFT_3), TD(CT_SHFT_4), TD(CT_SHFT_5),           TD(CT_SHFT_6), TD(CT_SHFT_7), TD(CT_SHFT_8), TD(CT_SHFT_9), TD(CT_SHFT_0), TD(CT_MINS),
   // ├─────────────────────────────┤ ├────────────────────────────────┤
-        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                              KC_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSLS,
+        KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                              HM_Y,    KC_U,    KC_I,    KC_O,    KC_P, KC_BSLS,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
        KC_LSFT,    KC_A,    HM_S,    HM_D,    HM_F,    HM_G,                           HM_H,    HM_J,    HM_K,    HM_L, KC_SCLN, KC_QUOT,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
@@ -247,7 +248,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [LAYER_LOWER] = LAYOUT(
   // ╭─────────────────────────────╮ ╭────────────────────────────────╮
-       S(KC_GRV),    TD(TD_1_SHFT),    KC_2,    KC_3,    KC_4,    KC_5,           KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
+       S(KC_GRV),    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,           KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_MINS,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
        KC_NUBS, S(KC_NUBS), U_LBRK, U_RBRK, U_LBRC, U_RBRC,                KC_P1,   KC_P2,   KC_P3,   U_LBRK, U_RBRK, KC_COMM,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
