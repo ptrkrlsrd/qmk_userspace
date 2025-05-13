@@ -252,7 +252,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├─────────────────────────────┤ ├────────────────────────────────┤
        KC_NUBS, S(KC_NUBS), U_LBRK, U_RBRK, U_LBRC, U_RBRC,                KC_P1,   KC_P2,   KC_P3,   U_LBRK, U_RBRK, KC_COMM,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         KC_P4,   KC_P5,   KC_P6, U_LBRC, U_RBRC, KC_PEQL,
+       XXXXXXX, XXXXXXX, XXXXXXX, TD(CT_CLN),  TD(CT_DOT), KC_SLSH,         KC_P4,   KC_P5,   KC_P6, U_LBRC, U_RBRC, KC_PEQL,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
        XXXXXXX, RAISE, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,               KC_P7,   KC_P8,   KC_P9,   KC_NUBS, S(KC_NUBS), KC_PDOT,
   // ╰─────────────────────────────┤ ├────────────────────────────────╯
@@ -268,7 +268,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // ├─────────────────────────────┤ ├────────────────────────────────┤
        XXXXXXX, XXXXXXX,   SAVE_MACRO, XXXXXXX, XXXXXXX, XXXXXXX,    KC_LEFT,   KC_DOWN, KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,
   // ├─────────────────────────────┤ ├────────────────────────────────┤
-       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,       TD(CT_CLN),  TD(CT_DOT), XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   // ╰─────────────────────────────┤ ├────────────────────────────────╯
                          XXXXXXX, _______, _______, XXXXXXX,    _______,                XXXXXXX, XXXXXXX, XXXXXXX
   //                    ╰────────────────────────╯ ╰────────────────────╯
